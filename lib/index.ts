@@ -57,7 +57,7 @@ type ColumnToPrimitive<TColumn> = TColumn extends StringColumn
   ? string
   : TColumn extends NumberColumn
   ? number
-  : any;
+  : any
 
 type WhereCondition<TColumn> = ColumnToPrimitive<TColumn>
 type WhereConditions<TEntity> = {
@@ -75,7 +75,7 @@ interface QueryBuilder<TEntity, TResult> {
 function escapeSql(input: any){
   if(typeof input === "string")
     return "'" + input + "'"
-  return input;
+  return input
 }
 
 function buildPsql<TResult>(values: QueryBuilderState): Query<TResult> {
